@@ -13,6 +13,11 @@ function BoxList() {
     setBoxes(boxes => [...boxes, newBox]);
   }
 
+  function deleteBox(evt) {
+    const id = evt.target.parentElement.getAttribute('id');
+    setBoxes(boxes.filter(box => box.id !== id));
+  }
+
   return (
     <div className="BoxList">
 
@@ -21,7 +26,8 @@ function BoxList() {
         bgColor={box.bgColor}
         width={box.width}
         height={box.height}
-        id={box.id} />)}
+        id={box.id}
+        deleteBox={deleteBox} />)}
 
     </div>
   );

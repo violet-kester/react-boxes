@@ -1,13 +1,21 @@
-function Box({ bgColor, width, height, id }) {
+/**
+ *
+ *
+ */
+
+function Box({ bgColor, width, height, id, deleteBox }) {
 
   const boxStyles = {
     "backgroundColor": bgColor,
-    "width": width,
-    "height": height
+    "width": `${width}px`,
+    "height": `${height}px`
   };
 
   return (
-    <div className="Box" style={boxStyles} id={id}></div>
+    <div className="Box" id={id}>
+      <div className="Box-styled" style={boxStyles} ></div>
+      <button className="Box-delete-btn" onClick={deleteBox}>X</button>
+    </div>
   );
 }
 
